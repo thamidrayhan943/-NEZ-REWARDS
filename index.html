@@ -1,1 +1,117 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RewardPlay (Backend Starter)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">✨</div>
+        <div>
+          <h1>RewardPlay</h1>
+          <p>Backend starter (Supabase + Cloudflare Worker)</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Balance</div>
+          <div class="value" id="balanceCoins">—</div>
+          <div class="sub" id="balanceUsd">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">User</div>
+          <div class="value" id="userEmail">Not logged in</div>
+          <div class="sub" id="userIdShort">—</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Auth -->
+      <section class="card" id="authCard">
+        <h2>Login</h2>
+        <p class="muted">Create an account so coins can’t be reset by refreshing.</p>
+
+        <div class="row">
+          <label>Email</label>
+          <input id="email" type="email" placeholder="you@email.com" autocomplete="email" />
+        </div>
+        <div class="row">
+          <label>Password</label>
+          <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+
+        <div class="btnRow">
+          <button class="btn" id="btnSignUp">Sign up</button>
+          <button class="btn primary" id="btnSignIn">Sign in</button>
+          <button class="btn ghost" id="btnSignOut" disabled>Sign out</button>
+        </div>
+
+        <div class="msg" id="authMsg"></div>
+      </section>
+
+      <!-- Earn -->
+      <section class="card">
+        <h2>Earn</h2>
+        <p class="muted">Rewarded ads should be verified server-side (this is a demo endpoint).</p>
+
+        <div class="btnRow">
+          <button class="btn primary" id="btnEarn" disabled>▶ Watch Rewarded Ad</button>
+          <button class="btn" id="btnRefresh" disabled>↻ Refresh Balance</button>
+        </div>
+
+        <div class="msg" id="earnMsg"></div>
+
+        <div class="smallBox">
+          <div class="smallTitle">How it works</div>
+          <ul class="smallList">
+            <li>Frontend calls your Worker with your Supabase login token.</li>
+            <li>Worker checks caps & writes a ledger entry in Supabase.</li>
+            <li>Balance is computed from the ledger (harder to cheat).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Community (simple posts) -->
+      <section class="card wide">
+        <div class="headRow">
+          <div>
+            <h2>Community Feed</h2>
+            <p class="muted">Posts are stored in Supabase. (Coins/tips should be server-side in your Worker.)</p>
+          </div>
+          <button class="btn" id="btnLoadPosts" disabled>Load posts</button>
+        </div>
+
+        <div class="row">
+          <label>Write a post</label>
+          <textarea id="postText" placeholder="Share something…"></textarea>
+        </div>
+
+        <div class="btnRow">
+          <button class="btn primary" id="btnPost" disabled>Post</button>
+        </div>
+
+        <div class="msg" id="postMsg"></div>
+
+        <div id="posts" class="posts"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="muted">
+        Tip: In production, never trust the client for coins. Only your Worker should write to the ledger.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
