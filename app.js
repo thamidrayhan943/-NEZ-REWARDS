@@ -3,7 +3,7 @@
 ************************/
 // Supabase (public – safe in browser)
 const SUPABASE_URL = "https://fzwdvhwdttbnhyjsicvr.supabase.co";
-const SUPABASE_ANON_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+const SUPABASE_ANON_KEY = "sb_publishable_fityqW08sdQfCHfmvlQUSQ_CQRZlPPW";
 
 // Cloudflare Worker backend
 const API_BASE = "https://rewardplay-api.rt954110.workers.dev";
