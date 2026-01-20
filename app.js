@@ -1,9 +1,13 @@
 /***********************
   CONFIG - YOU MUST EDIT
 ************************/
-const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL_HERE";
-const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
-const API_BASE = "PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE"; // ex: https://rewardplay-api.username.workers.dev
+// Supabase (public – safe in browser)
+const SUPABASE_URL = "https://fzwdvhwdttbnhyjsicvr.supabase.co";
+const SUPABASE_ANON_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+// Cloudflare Worker backend
+const API_BASE = "https://rewardplay-api.rt954110.workers.dev";
+
 
 const COINS_PER_DOLLAR = 1000;
 
